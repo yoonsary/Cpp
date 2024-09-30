@@ -68,7 +68,7 @@ void Div::setValue(int x, int y) {
 int Div::calculate() {
     if (b == 0) {
         cout << "0으로는 나눌 수 없습니다" << endl;
-        return 0;
+        return -1;
     }
     return a / b;
 }
@@ -99,7 +99,9 @@ int main() {
         }
         else if (op == '/') {
             d.setValue(x, y);
-            cout << "" << d.calculate() << endl;
+            if (d.calculate() != -1) { 
+                cout << d.calculate() << endl;
+            }
         }
         else {
             cout << "잘못된 연산자입니다" << endl;
