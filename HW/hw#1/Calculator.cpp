@@ -5,57 +5,73 @@ class Add {
 private:
     int a, b;
 public:
-    void setValue(int x, int y) {
-        a = x;
-        b = y;
-    }
-    int calculate() {
-        return a + b;
-    }
+    void setValue(int x, int y);
+    int calculate();
 };
+
+void Add::setValue(int x, int y) {
+    a = x;
+    b = y;
+}
+
+int Add::calculate() {
+    return a + b;
+}
 
 class Sub {
 private:
     int a, b;
 public:
-    void setValue(int x, int y) {
-        a = x;
-        b = y;
-    }
-    int calculate() {
-        return a - b;
-    }
+    void setValue(int x, int y);
+    int calculate();
 };
+
+void Sub::setValue(int x, int y) {
+    a = x;
+    b = y;
+}
+
+int Sub::calculate() {
+    return a - b;
+}
 
 class Mul {
 private:
     int a, b;
 public:
-    void setValue(int x, int y) {
-        a = x;
-        b = y;
-    }
-    int calculate() {
-        return a * b;
-    }
+    void setValue(int x, int y);
+    int calculate();
 };
+
+void Mul::setValue(int x, int y) {
+    a = x;
+    b = y;
+}
+
+int Mul::calculate() {
+    return a * b;
+}
 
 class Div {
 private:
     int a, b;
 public:
-    void setValue(int x, int y) {
-        a = x;
-        b = y;
-    }
-    int calculate() {
-        if (b == 0) {
-            cout << "0À¸·Î´Â ³ª´­ ¼ö ¾ø½À´Ï´Ù" << endl;
-            return 0;
-        }
-        return a / b;
-    }
+    void setValue(int x, int y);
+    int calculate();
 };
+
+void Div::setValue(int x, int y) {
+    a = x;
+    b = y;
+}
+
+int Div::calculate() {
+    if (b == 0) {
+        cout << "0ìœ¼ë¡œëŠ” ë‚˜ëˆŒ ìˆ˜ ì—†ìŠµë‹ˆë‹¤" << endl;
+        return 0;
+    }
+    return a / b;
+}
 
 int main() {
     Add a;
@@ -66,7 +82,7 @@ int main() {
     while (true) {
         int x, y;
         char op;
-        cout << "µÎ Á¤¼ö¿Í ¿¬»êÀÚ¸¦ ÀÔ·ÂÇÏ¼¼¿ä>> ";
+        cout << "ë‘ ì •ìˆ˜ì™€ ì—°ì‚°ìžë¥¼ ìž…ë ¥í•˜ì„¸ìš”>> ";
         cin >> x >> y >> op;
 
         if (op == '+') {
@@ -86,7 +102,7 @@ int main() {
             cout << "" << d.calculate() << endl;
         }
         else {
-            cout << "Àß¸øµÈ ¿¬»êÀÚÀÔ´Ï´Ù" << endl;
+            cout << "ìž˜ëª»ëœ ì—°ì‚°ìžìž…ë‹ˆë‹¤" << endl;
         }
     }
 
