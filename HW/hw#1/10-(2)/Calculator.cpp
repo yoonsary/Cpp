@@ -3,35 +3,39 @@
 using namespace std;
 
 void Add::setValue(int x, int y) {
-    this->x = x;
-    this->y = y;
+    a = x;
+    b = y;
 }
 int Add::calculate() {
-    return x + y;
+    return a + b;
 }
 
 void Sub::setValue(int x, int y) {
-    this->x = x;
-    this->y = y;
+    a = x;
+    b = y;
 }
 int Sub::calculate() {
-    return x - y;
+    return a - b;
 }
 
 void Mul::setValue(int x, int y) {
-    this->x = x;
-    this->y = y;
+    a = x;
+    b = y;
 }
 int Mul::calculate() {
-    return x * y;
+    return a * b;
 }
 
 void Div::setValue(int x, int y) {
-    this->x = x;
-    this->y = y;
+    a = x;
+    b = y;
 }
 int Div::calculate() {
-    return x / y;
+    if (b == 0) {
+        cout << "0ìœ¼ë¡œëŠ” ë‚˜ëˆŒ ìˆ˜ ì—†ìŠµë‹ˆë‹¤" << endl;
+        return 0;
+    }
+    return a / b;
 }
 
 int main() {
@@ -43,7 +47,7 @@ int main() {
     while (true) {
         int x, y;
         char op;
-        cout << "µÎ Á¤¼ö¿Í ¿¬»êÀÚ¸¦ ÀÔ·ÂÇÏ¼¼¿ä>>";
+        cout << "ë‘ ì •ìˆ˜ì™€ ì—°ì‚°ìžë¥¼ ìž…ë ¥í•˜ì„¸ìš”>>";
         cin >> x >> y >> op;
 
         if (op == '+') {
@@ -63,7 +67,7 @@ int main() {
             cout << "" << d.calculate() << endl;
         }
         else {
-            cout << "Àß¸øµÈ ¿¬»êÀÚÀÔ´Ï´Ù" << endl;
+            cout << "ìž˜ëª»ëœ ì—°ì‚°ìžìž…ë‹ˆë‹¤" << endl;
         }
     }
 
