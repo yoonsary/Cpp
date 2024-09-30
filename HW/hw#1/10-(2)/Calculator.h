@@ -2,7 +2,7 @@
 #define CALCULATOR_H
 
 class Add {
-	int x, y;
+	int a, b;
 public:
 	void setValue(int x, int y);
 	int calculate();
@@ -10,21 +10,21 @@ public:
 
 
 class Sub {
-	int x, y;
+	int a, b;
 public:
 	void setValue(int x, int y);
 	int calculate();
 };
 
 class Mul {
-	int x, y;
+	int a, b;
 public:
 	void setValue(int x, int y);
 	int calculate();
 };
 
 class Div {
-	int x, y;
+	int a, b;
 public:
 	void setValue(int x, int y);
 	int calculate();
