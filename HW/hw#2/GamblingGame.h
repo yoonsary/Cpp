@@ -10,13 +10,15 @@ using namespace std;
 class Player {
 	string name;
 public:
-	void setName(string name);
+	Player(string name);
 	string getName();
 };
 
 class GamblingGame {
-	Player player[2];
+	Player* players[2];
 public:
+	GamblingGame(string name1, string name2);
+	~GamblingGame();
 	void play();
 	bool ranNum(string name);
 };
