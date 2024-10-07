@@ -1,6 +1,6 @@
 #include "GamblingGame.h"
 
-void Player::setName(string name) {
+Player::Player(string name) {
 	this->name = name;
 }
 
@@ -8,29 +8,31 @@ string Player::getName() {
 	return name;
 }
 
+GamblingGame::GamblingGame(string name1, string name2) {
+	players[0] = new Player(name1);
+	players[1] = new Player(name2);
+}
+
+GamblingGame::~GamblingGame() {
+	delete players[0];
+	delete players[1];
+}
+
 void GamblingGame::play() {
-	cout << "***** °·ºí¸µ °ÔÀÓÀ» ½ÃÀÛÇÕ´Ï´Ù. *****" << endl;
-	string name;
-	cout << "Ã¹¹øÂ° ¼±¼ö ÀÌ¸§>>";
-	cin >> name;
-	player[0].setName(name);
-	cout << "µÎ¹øÂ° ¼±¼ö ÀÌ¸§>>";
-	cin >> name;
-	player[1].setName(name);
-	cin.ignore();
+	cout << "***** ê°¬ë¸”ë§ ê²Œìž„ì„ ì‹œìž‘í•©ë‹ˆë‹¤. *****" << endl;
 
 	int endGame = 0;
 	while (true) {
 		for (int i = 0; i < 2; i++) {
-			if (ranNum(player[i].getName())) {
-				cout << player[i].getName() << "´Ô ½Â¸®!!!" << endl;
+			if (ranNum(players[i]->getName())) {
+				cout << players[i]->getName() << "ë‹˜ ìŠ¹ë¦¬!!!" << endl;
 				endGame++;
 				break;
 			}
 			else
-				cout << "¾Æ½±±º¿ä!" << endl;
+				cout << "ì•„ì‰½êµ°ìš”!" << endl;
 		}
-		if(endGame == 1)
+		if (endGame == 1)
 			break;
 	}
 }
@@ -59,7 +61,13 @@ bool GamblingGame::ranNum(string name) {
 }
 
 int main(void) {
-	GamblingGame gg;
+	string name1, name2;
+	cout << "ì²«ë²ˆì§¸ ì„ ìˆ˜ ì´ë¦„>>";
+	cin >> name1;
+	cout << "ë‘ë²ˆì§¸ ì„ ìˆ˜ ì´ë¦„>>";
+	cin >> name2;
+
+	GamblingGame gg(name1, name2);
 	gg.play();
 
 	return 0;
