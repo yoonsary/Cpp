@@ -9,7 +9,7 @@
 #include "UI.h"
 
 class GraphicEditor {
-    std::vector<Shape*> shapes;
+    std::vector<Shape*> v;
 
 public:
     ~GraphicEditor();
