@@ -3,7 +3,7 @@
 using namespace std;
 
 GraphicEditor::~GraphicEditor() {
-    for (Shape* shape : shapes) {
+    for (Shape* shape : v) {
         delete shape;
     }
 }
@@ -21,36 +21,40 @@ void GraphicEditor::insertShape(int type) {
         p = new Rectangle();
         break;
     default:
-        cout << "Àß¸øµÈ µµÇü À¯ÇüÀÔ´Ï´Ù." << endl;
+        cout << "ìž˜ëª»ëœ ë„í˜• ìœ í˜•ìž…ë‹ˆë‹¤." << endl;
         return;
     }
-    shapes.push_back(p);
-    cout << "µµÇüÀÌ »ðÀÔµÇ¾ú½À´Ï´Ù." << endl;
+    v.push_back(p);
+    cout << "ë„í˜•ì´ ì‚½ìž…ë˜ì—ˆìŠµë‹ˆë‹¤." << endl;
 }
 
 void GraphicEditor::deleteShape(int index) {
-    if (index < 1 || index > shapes.size()) {
-        cout << "Àß¸øµÈ ÀÎµ¦½ºÀÔ´Ï´Ù. À¯È¿ÇÑ ¹üÀ§´Â 1ºÎÅÍ " << shapes.size() << "±îÁöÀÔ´Ï´Ù." << endl;
+    if (v.empty()) {
+        cout << "ë„í˜•ì´ ì—†ìŠµë‹ˆë‹¤!" << endl;
         return;
     }
-    delete shapes[index - 1];
-    shapes.erase(shapes.begin() + (index - 1));
-    cout << "µµÇüÀÌ »èÁ¦µÇ¾ú½À´Ï´Ù." << endl;
+    if (index < 1 || index > v.size()) {
+        cout << "ìž˜ëª»ëœ ì¸ë±ìŠ¤ìž…ë‹ˆë‹¤. ìœ íš¨í•œ ë²”ìœ„ëŠ” 1ë¶€í„° " << v.size() << "ê¹Œì§€ìž…ë‹ˆë‹¤." << endl;
+        return;
+    }
+    delete v[index - 1];
+    v.erase(v.begin() + (index - 1));
+    cout << "ë„í˜•ì´ ì‚­ì œë˜ì—ˆìŠµë‹ˆë‹¤." << endl;
 }
 
 void GraphicEditor::show() {
-    if (shapes.empty()) {
-        cout << "µµÇüÀÌ ¾ø½À´Ï´Ù!" << endl;
+    if (v.empty()) {
+        cout << "ë„í˜•ì´ ì—†ìŠµë‹ˆë‹¤!" << endl;
         return;
     }
-    for (size_t i = 0; i < shapes.size(); ++i) {
+    for (size_t i = 0; i < v.size(); ++i) {
         cout << i + 1 << ": ";
-        shapes[i]->paint();
+        v[i]->paint();
     }
 }
 
 void GraphicEditor::run() {
-    cout << "±×·¡ÇÈ ¿¡µðÅÍÀÔ´Ï´Ù." << endl;
+    cout << "ê·¸ëž˜í”½ ì—ë””í„°ìž…ë‹ˆë‹¤." << endl;
     int menu, index, type;
     while (true) {
         menu = UI::Menu();
@@ -69,7 +73,7 @@ void GraphicEditor::run() {
         case 4:
             return;
         default:
-            cout << "Àß¸øµÈ ¸Þ´ºÀÔ´Ï´Ù." << endl;
+            cout << "ìž˜ëª»ëœ ë©”ë‰´ìž…ë‹ˆë‹¤." << endl;
             break;
         }
     }
